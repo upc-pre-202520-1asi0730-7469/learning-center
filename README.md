@@ -1,5 +1,30 @@
-# Vue 3 + Vite
+# ACME Learning Center (learning-center)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Overview
+The ACME Learning Center application illustrates the use of Vue 3 with composition API, PrimeVue, Vue Router, Vue-i18n, and Pinia for State Management. 
+It features a responsive design, internationalization, and a user-friendly interface for managing categories and courses.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Features
+- Responsive design with PrimeVue components.
+- Internationalization support with Vue-i18n.
+- State management using Pinia.
+- Routing with Vue Router.
+- CRUD operations for categories and courses.
+- Form validation and user feedback with Toast notifications.
+
+## Technologies Used
+- Vue 3 with Composition API
+- PrimeVue
+- Vue Router
+- Vue-i18n
+- Pinia
+- Vite
+- Axios
+
+## User Stories
+The user stories for the ACME Learning Center application can be found in the [docs/user-stories.md](docs/user-stories.md) file.
+
+## Class Diagram
+The class diagram for the ACME Learning Center application can be found in the [docs/class-diagram.puml](docs/class-diagram.puml) file.
+
+
