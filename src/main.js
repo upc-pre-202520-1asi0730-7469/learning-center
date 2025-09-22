@@ -17,6 +17,7 @@ import {
     Rating, Row, Select, SelectButton, Tag, Textarea, Toast,
     ToastService, Toolbar, Tooltip
 } from "primevue";
+import router from "./router.js";
 
 createApp(App)
     .use(PrimeVue, { theme: { preset: Material}, ripple: true })
@@ -48,4 +49,5 @@ createApp(App)
     .component('pv-toast', Toast)
     .directive('tooltip', Tooltip)
     .use(i18n)
+    .use(router)
     .mount('#app')
