@@ -1,0 +1,24 @@
+{
+  "option": {
+    "home": "Inicio",
+    "about": "Acerca de"
+  },
+  "authoring-phrase": {
+    "intro": "Hecho con",
+    "use": "utilizando",
+    "author": "por el Equipo de desarrollo de {brand}"
+  },
+  "about": {
+    "title": "Acerca de nosotros",
+    "content": "ACME Learning Center es una Plataforma educativa empresarial, parte de ACME Corporation."
+  },
+  "home": {
+    "title": "Bienvenido",
+    "content": "Bienvenido a ACME Learning Center, tu punto de entrada a la educación de calidad y recursos de aprendizaje."
+  },
+  "page-not-found": {
+    "title": "Página no encontrada",
+    "content": "La ruta {unavailable-route} que intentas acceder no existe.",
+    "go-home": "Ir a Inicio"
+  }
+}
