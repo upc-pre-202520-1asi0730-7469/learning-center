@@ -123,4 +123,28 @@ const usePublishingStore = defineStore('publishing', () => {
         return tutorials.value.find(t => t["id"] === tutorialId);
     }
     
+    return {
+        // State
+        categories,
+        tutorials,
+        errors,
+        categoriesLoaded,
+        tutorialsLoaded,
+        // Properties
+        categoriesCount,
+        tutorialsCount,
+        // Actions
+        fetchCategories,
+        fetchTutorials,
+        addCategory,
+        updateCategory,
+        deleteCategory,
+        getCategoryById,
+        addTutorial,
+        updateTutorial,
+        deleteTutorial,
+        getTutorialById
+    };
 });
+
+export default usePublishingStore;
