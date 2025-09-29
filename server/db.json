@@ -20,5 +20,37 @@
       "name": "Entity Framework Core",
       "id": 5
     }
+  ],
+  "tutorials": [
+    {
+      "id": 1,
+      "title": "Vue 3 + Vite + TypeScript",
+      "summary": "Learn how to set up a Vue 3 project using Vite and TypeScript.",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "title": "Building RESTful APIs with ASP.NET Core",
+      "summary": "A comprehensive guide to building RESTful APIs using ASP.NET Core.",
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "title": "JavaScript ES6 Features",
+      "summary": "Explore the new features introduced in ECMAScript 6 (ES6).",
+      "categoryId": 3
+    },
+    {
+      "id": 4,
+      "title": "C# Basics for Beginners",
+      "summary": "An introduction to C# programming for beginners.",
+      "categoryId": 4
+    },
+    {
+      "id": 5,
+      "title": "Getting Started with Entity Framework Core",
+      "summary": "Learn the basics of Entity Framework Core and how to use it in your applications.",
+      "categoryId": 5
+    }
   ]
 }
