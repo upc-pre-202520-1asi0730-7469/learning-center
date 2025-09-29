@@ -6,6 +6,17 @@ import {TutorialAssembler} from "../infrastructure/tutorial.assembler.js";
 
 const publishingApi = new PublishingApi();
 
+/**
+ * Pinia store for managing publishing state, including categories and tutorials.
+ * Provides state, getters, and actions for fetching, adding, updating, and deleting categories and tutorials.
+ * 
+ * @store
+ * @example
+ * import { usePublishingStore } from '@/publishing/application/publishing.store.js';
+ * const publishingStore = usePublishingStore();
+ * publishingStore.fetchCategories();
+ * console.log(publishingStore.categories);
+ */
 const usePublishingStore = defineStore('publishing', () => {
     // State
     const categories = ref([]);
@@ -74,4 +85,42 @@ const usePublishingStore = defineStore('publishing', () => {
         });
     }
     
-})
+    function getCategoryById(categoryId) {
+        return categories.value.find(c => c["id"] === categoryId);
+    }
+    
+    function addTutorial(tutorial) {
+        publishingApi.createTutorial(tutorial).then(response => {
+            const resource = response.data;
+            const newTutorial = TutorialAssembler.toEntityFromResource(resource);
+            tutorials.value.push(newTutorial);
+        }).catch(error => {
+            errors.value.push(error);
+        });
+    }
+    
+    function updateTutorial(tutorial) {
+        publishingApi.updateTutorial(tutorial).then(response => {
+            const resource = response.data;
+            const updatedTutorial = TutorialAssembler.toEntityFromResource(resource);
+            const index = tutorials.value.findIndex(t => t["id"] === updatedTutorial.id);
+            if (index !== -1) tutorials.value[index] = updatedTutorial;
+        }).catch(error => {
+            errors.value.push(error);
+        });
+    }
+    
+    function deleteTutorial(tutorialId) {
+        publishingApi.deleteTutorial(tutorialId).then(() => {
+            const index = tutorials.value.findIndex(t => t["id"] === tutorialId);
+            if (index !== -1) tutorials.value.splice(index, 1);
+        }).catch(error => {
+            errors.value.push(error);
+        });
+    }
+    
+    function getTutorialById(tutorialId) {
+        return tutorials.value.find(t => t["id"] === tutorialId);
+    }
+    
+});
