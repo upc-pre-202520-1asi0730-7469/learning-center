@@ -42,7 +42,7 @@ const confirmDelete = (category) => {
     <pv-button  :label="t('categories.new')" class="mb-3" icon="pi pi-plus" @click="navigateToNew"/>
     <pv-data-table
       :loading="!categoriesLoaded"
-      :rows="10"
+      :rows="5"
       :rows-per-page-options="[5, 10, 20]"
       :value="categories"
       paginator
