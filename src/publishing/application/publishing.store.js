@@ -54,7 +54,12 @@ const usePublishingStore = defineStore('publishing', () => {
             errors.value.push(error);
         });
     }
-    
+
+    function getCategoryById(id) {
+        let idNum = parseInt(id);
+        return categories.value.find(category => category["id"] === idNum);
+    }
+
     function addCategory(category) {
         publishingApi.createCategory(category).then(response => {
             const resource = response.data;
@@ -84,11 +89,12 @@ const usePublishingStore = defineStore('publishing', () => {
             errors.value.push(error);
         });
     }
-    
-    function getCategoryById(categoryId) {
-        return categories.value.find(c => c["id"] === categoryId);
+
+    function getTutorialById(id) {
+        let idNum = parseInt(id);
+        return tutorials.value.find(tutorial => tutorial["id"] === idNum);
     }
-    
+
     function addTutorial(tutorial) {
         publishingApi.createTutorial(tutorial).then(response => {
             const resource = response.data;
@@ -118,10 +124,7 @@ const usePublishingStore = defineStore('publishing', () => {
             errors.value.push(error);
         });
     }
-    
-    function getTutorialById(tutorialId) {
-        return tutorials.value.find(t => t["id"] === tutorialId);
-    }
+
     
     return {
         // State
