@@ -1,7 +1,9 @@
 {
   "option": {
     "home": "Home",
-    "about": "About"
+    "about": "About",
+    "categories": "Categories",
+    "tutorials": "Tutorials"
   },
   "authoring-phrase": {
     "intro": "Made with",
