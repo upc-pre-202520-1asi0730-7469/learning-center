@@ -14,8 +14,8 @@ const { errors, addCategory, updateCategory } = store;
 const form = ref({ name: ''});
 const isEdit = computed(() => !!route.params.id);
 
-const getCategoryById = (id) => {
-  return store.categories.find(category => category.id === id);
+function getCategoryById(id) {
+  return store.getCategoryById(id);
 }
 
 onMounted(() => {
