@@ -30,7 +30,9 @@ import {Category} from "../domain/model/category.entity.js";
 export class CategoryAssembler {
     /**
      * Converts a single resource object into a Category entity.
-     * @param resource - Raw resource object from API response.
+     * @param {Object} resource - Raw resource object from API response.
+     * @param {Number|null} resource.id - The ID of the category.
+     * @param {string} resource.name - The name of the category.
      * @returns {Category} - Category domain entity.
      * 
      * @example
@@ -43,7 +45,9 @@ export class CategoryAssembler {
 
     /**
      * Converts an API response containing multiple resources into an array of Category entities.
-     * @param response - API response object.
+     * @param {Object} response - API response object.
+     * @param {Number} response.status - HTTP status code.
+     * @param {Object|Array} response.data - The data payload.
      * @returns {Category[]} - Array of Category domain entities.
      * 
      * @example
@@ -67,4 +71,3 @@ export class CategoryAssembler {
         return resources.map(resource => this.toEntityFromResource(resource));
     }
 }
-

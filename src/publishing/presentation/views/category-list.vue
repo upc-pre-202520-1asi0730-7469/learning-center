@@ -16,14 +16,25 @@ onMounted(() => {
   console.log("Categories loaded", categories);
 });
 
+/**
+ * Navigates to the new category page.
+ */
 const navigateToNew = () => {
   router.push({name: 'publishing-category-new'});
 };
 
+/**
+ * Navigates to the edit page for a category.
+ * @param {Number} id - The ID of the category to edit.
+ */
 const navigateToEdit = (id) => {
   router.push({name: 'publishing-category-edit', params: {id}});
 };
 
+/**
+ * Shows a confirmation dialog to delete a category.
+ * @param {Category} category - The category to delete.
+ */
 const confirmDelete = (category) => {
   confirm.require({
     message: t('categories.confirm-delete', {name: category.name}),

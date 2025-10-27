@@ -6,6 +6,9 @@ import FooterContent from "./footer-content.vue";
 
 const { t } = useI18n();
 const drawer = ref(false);
+/**
+ * Toggles the drawer open or closed.
+ */
 const toggleDrawer = () => { drawer.value = !drawer.value; };
 const items = [
   {label: 'option.home', to: '/home'},

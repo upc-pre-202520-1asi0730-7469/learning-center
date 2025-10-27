@@ -23,11 +23,16 @@ export class TutorialAssembler {
 
     /**
      * Convert a single tutorial resource into a Tutorial entity.
-     * @param resource {Object} - The tutorial resource object.
+     * @param {Object} resource - The tutorial resource object.
+     * @param {Number|null} resource.id - The ID of the tutorial.
+     * @param {string} resource.title - The title of the tutorial.
+     * @param {string} resource.summary - The summary of the tutorial.
+     * @param {Number|null} resource.categoryId - The ID of the associated category.
+     * @param {Object|null} resource.category - The associated category object.
      * @returns {Tutorial} - The converted Tutorial entity.
      * 
      * @example
-     * const resource = { id: 1, title: "Tutorial 1", content: "Content of tutorial 1" };
+     * const resource = { id: 1, title: "Tutorial 1", summary: "Summary", categoryId: 1, category: {id:1, name:'Tech'} };
      * const tutorialEntity = TutorialAssembler.toEntityFromResource(resource);
      */
     static toEntityFromResource(resource) {
@@ -36,15 +41,17 @@ export class TutorialAssembler {
 
     /**
      * Convert a response containing multiple tutorial resources into an array of Tutorial entities.
-     * @param response {Object} - The response object containing tutorial resources.
-     * @returns {*|*[]} - An array of converted Tutorial entities.
+     * @param {Object} response - The response object containing tutorial resources.
+     * @param {Number} response.status - HTTP status code.
+     * @param {Object|Array} response.data - The data payload.
+     * @returns {Tutorial[]} - An array of converted Tutorial entities.
      * 
      * @example
      * const response = {
      *   status: 200,
      *   data: [
-     *     { id: 1, title: "Tutorial 1", content: "Content of tutorial 1" },
-     *     { id: 2, title: "Tutorial 2", content: "Content of tutorial 2" }
+     *     { id: 1, title: "Tutorial 1", summary: "Summary", categoryId: 1 },
+     *     { id: 2, title: "Tutorial 2", summary: "Summary", categoryId: 2 }
      *   ]
      * };
      * const tutorialEntities = TutorialAssembler.toEntitiesFromResponse(response);

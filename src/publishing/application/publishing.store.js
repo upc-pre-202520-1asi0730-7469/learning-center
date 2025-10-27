@@ -33,6 +33,9 @@ const usePublishingStore = defineStore('publishing', () => {
     return tutorialsLoaded ? tutorials.value.length : 0; });
     
     // Actions
+    /**
+     * Fetches categories from the API and updates the store state.
+     */
     function fetchCategories() {
         publishingApi.getCategories().then(response => {
             categories.value = CategoryAssembler.toEntitiesFromResponse(response);
@@ -44,6 +47,9 @@ const usePublishingStore = defineStore('publishing', () => {
         });
     }
     
+    /**
+     * Fetches tutorials from the API and updates the store state.
+     */
     function fetchTutorials() {
         publishingApi.getTutorials().then(response => {
             tutorials.value = TutorialAssembler.toEntitiesFromResponse(response);
@@ -55,11 +61,20 @@ const usePublishingStore = defineStore('publishing', () => {
         });
     }
 
+    /**
+     * Finds a category by ID in the local state.
+     * @param {Number|string} id - The ID of the category.
+     * @returns {Category|null} The category or null if not found.
+     */
     function getCategoryById(id) {
         let idNum = parseInt(id);
         return categories.value.find(category => category["id"] === idNum);
     }
 
+    /**
+     * Adds a new category by sending it to the API and updating the store.
+     * @param {Category} category - The category to add.
+     */
     function addCategory(category) {
         publishingApi.createCategory(category).then(response => {
             const resource = response.data;
@@ -70,6 +85,10 @@ const usePublishingStore = defineStore('publishing', () => {
         });
     }
     
+    /**
+     * Updates an existing category by sending it to the API and updating the store.
+     * @param {Category} category - The category to update.
+     */
     function updateCategory(category) {
         publishingApi.updateCategory(category).then(response => {
             const resource = response.data;
@@ -81,6 +100,10 @@ const usePublishingStore = defineStore('publishing', () => {
         });
     }
     
+    /**
+     * Deletes a category by ID from the API and updates the store.
+     * @param {Number} categoryId - The ID of the category to delete.
+     */
     function deleteCategory(categoryId) {
         publishingApi.deleteCategory(categoryId).then(() => {
             const index = categories.value.findIndex(c => c["id"] === categoryId);
@@ -90,11 +113,20 @@ const usePublishingStore = defineStore('publishing', () => {
         });
     }
 
+    /**
+     * Finds a tutorial by ID in the local state.
+     * @param {Number|string} id - The ID of the tutorial.
+     * @returns {Tutorial|null} The tutorial or null if not found.
+     */
     function getTutorialById(id) {
         let idNum = parseInt(id);
         return tutorials.value.find(tutorial => tutorial["id"] === idNum);
     }
 
+    /**
+     * Adds a new tutorial by sending it to the API and updating the store.
+     * @param {Tutorial} tutorial - The tutorial to add.
+     */
     function addTutorial(tutorial) {
         publishingApi.createTutorial(tutorial).then(response => {
             const resource = response.data;
@@ -105,6 +137,10 @@ const usePublishingStore = defineStore('publishing', () => {
         });
     }
     
+    /**
+     * Updates an existing tutorial by sending it to the API and updating the store.
+     * @param {Tutorial} tutorial - The tutorial to update.
+     */
     function updateTutorial(tutorial) {
         publishingApi.updateTutorial(tutorial).then(response => {
             const resource = response.data;
@@ -116,6 +152,10 @@ const usePublishingStore = defineStore('publishing', () => {
         });
     }
     
+    /**
+     * Deletes a tutorial by ID from the API and updates the store.
+     * @param {Number} tutorialId - The ID of the tutorial to delete.
+     */
     function deleteTutorial(tutorialId) {
         publishingApi.deleteTutorial(tutorialId).then(() => {
             const index = tutorials.value.findIndex(t => t["id"] === tutorialId);

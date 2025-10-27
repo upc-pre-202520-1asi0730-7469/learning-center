@@ -1,3 +1,8 @@
+/**
+ * Main entry point for the Vue.js application.
+ * Initializes the Vue app with necessary plugins, components, and configurations.
+ */
+
 import { createApp } from 'vue'
 import './style.css'
 import App from './app.vue'

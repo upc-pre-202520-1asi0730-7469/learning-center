@@ -30,7 +30,7 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Fetches all categories from the categories endpoint.
-     * @returns {*} A promise that resolves to the list of categories.
+     * @returns {Promise<Array>} A promise that resolves to the list of categories.
      */
     getCategories() {
         return this.#categoriesEndpoint.getAll();
@@ -38,8 +38,8 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Fetches a category by its ID from the categories' endpoint.
-     * @param id - The ID of the category to fetch.
-     * @returns {*} A promise that resolves to the category data.
+     * @param {Number} id - The ID of the category to fetch.
+     * @returns {Promise<Object>} A promise that resolves to the category data.
      */
     getCategoryById(id) {
         return this.#categoriesEndpoint.getById(id);
@@ -47,8 +47,9 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Creates a new category by sending a POST request to the categories' endpoint.
-     * @param resource - The category data to create.
-     * @returns {resource} A promise that resolves to the created category data.
+     * @param {Object} resource - The category data to create.
+     * @param {string} resource.name - The name of the category.
+     * @returns {Promise<Object>} A promise that resolves to the created category data.
      */
     createCategory(resource) {
         return this.#categoriesEndpoint.create(resource);
@@ -56,8 +57,10 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Updates an existing category by sending a PUT request to the categories' endpoint.
-     * @param resource - The category data to update.
-     * @returns {*} A promise that resolves to the updated category data.
+     * @param {Object} resource - The category data to update.
+     * @param {Number} resource.id - The ID of the category.
+     * @param {string} resource.name - The name of the category.
+     * @returns {Promise<Object>} A promise that resolves to the updated category data.
      */
     updateCategory(resource) {
         return this.#categoriesEndpoint.update(resource.id, resource);
@@ -65,8 +68,8 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Deletes a category by its ID by sending a DELETE request to the categories' endpoint.
-     * @param id - The ID of the category to delete.
-     * @returns {*} A promise that resolves to the deletion result.
+     * @param {Number} id - The ID of the category to delete.
+     * @returns {Promise<Object>} A promise that resolves to the deletion result.
      */
     deleteCategory(id) {
         return this.#categoriesEndpoint.delete(id);
@@ -74,7 +77,7 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Fetches all tutorials from the tutorials endpoint.
-     * @returns {*} A promise that resolves to the list of tutorials.
+     * @returns {Promise<Array>} A promise that resolves to the list of tutorials.
      */
     getTutorials() {
         return this.#tutorialsEndpoint.getAll();
@@ -82,8 +85,8 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Fetches a tutorial by its ID from the tutorials' endpoint.
-     * @param id - The ID of tutorial to fetch.
-     * @returns {*} A promise that resolves to the tutorial data.
+     * @param {Number} id - The ID of tutorial to fetch.
+     * @returns {Promise<Object>} A promise that resolves to the tutorial data.
      */
     getTutorialById(id) {
         return this.#tutorialsEndpoint.getById(id);
@@ -91,8 +94,11 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Creates a new tutorial by sending a POST request to the tutorials' endpoint.
-     * @param resource - The tutorial data to create.
-     * @returns {resource} A promise that resolves to the created tutorial data.
+     * @param {Object} resource - The tutorial data to create.
+     * @param {string} resource.title - The title of the tutorial.
+     * @param {string} resource.summary - The summary of the tutorial.
+     * @param {Number|null} resource.categoryId - The ID of the associated category.
+     * @returns {Promise<Object>} A promise that resolves to the created tutorial data.
      */
     createTutorial(resource) {
         return this.#tutorialsEndpoint.create(resource);
@@ -100,8 +106,12 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Updates an existing tutorial by sending a PUT request to the tutorials' endpoint.
-     * @param resource - The tutorial data to update.
-     * @returns {*} A promise that resolves to the updated tutorial data.
+     * @param {Object} resource - The tutorial data to update.
+     * @param {Number} resource.id - The ID of the tutorial.
+     * @param {string} resource.title - The title of the tutorial.
+     * @param {string} resource.summary - The summary of the tutorial.
+     * @param {Number|null} resource.categoryId - The ID of the associated category.
+     * @returns {Promise<Object>} A promise that resolves to the updated tutorial data.
      */
     updateTutorial(resource) {
         return this.#tutorialsEndpoint.update(resource.id, resource);
@@ -109,8 +119,8 @@ export class PublishingApi extends BaseApi {
 
     /**
      * Deletes a tutorial by its ID by sending a DELETE request to the tutorials' endpoint.
-     * @param id - The ID of the tutorial to delete.
-     * @returns {*} A promise that resolves to the deletion result.
+     * @param {Number} id - The ID of the tutorial to delete.
+     * @returns {Promise<Object>} A promise that resolves to the deletion result.
      */
     deleteTutorial(id) {
         return this.#tutorialsEndpoint.delete(id);

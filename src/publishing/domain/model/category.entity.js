@@ -13,8 +13,9 @@
 export class Category {
     /**
      * Creates an instance of Category.
-     * @param id - The unique identifier of the category.
-     * @param name - The name of the category.
+     * @param {Object} params - The parameters for the category.
+     * @param {Number|null} params.id - The unique identifier of the category.
+     * @param {string} params.name - The name of the category.
      */
     constructor({ id = null, name = '' }) {
         this.id = id;

@@ -14,6 +14,11 @@ const { errors, addCategory, updateCategory } = store;
 const form = ref({ name: ''});
 const isEdit = computed(() => !!route.params.id);
 
+/**
+ * Finds a category by ID from the store.
+ * @param {Number|string} id - The ID of the category.
+ * @returns {Category|null} The category or null if not found.
+ */
 function getCategoryById(id) {
   return store.getCategoryById(id);
 }
@@ -27,12 +32,18 @@ onMounted(() => {
   }
 });
 
+/**
+ * Saves the category by creating or updating it.
+ */
 const saveCategory = () => {
   const category = new Category({ id: isEdit.value ? route.params.id : null, name: form.value.name});
   if (isEdit.value) updateCategory(category); else addCategory(category);
   navigateBack();
 }
 
+/**
+ * Navigates back to the categories list.
+ */
 const navigateBack = () => {
   router.push({name: 'publishing-categories'});
 }

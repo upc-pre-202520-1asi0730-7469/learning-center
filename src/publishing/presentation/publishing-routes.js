@@ -4,6 +4,10 @@ const categoryForm = () => import('./views/category-form.vue');
 const tutorialList = () => import('./views/tutorial-list.vue');
 const tutorialForm = () => import('./views/tutorial-form.vue');
 
+/**
+ * Routes configuration for the publishing module.
+ * @type {Array<Object>}
+ */
 const publishingRoutes = [
     { path: 'categories',           name: 'publishing-categories',      component: categoryList, meta: {title: 'Categories'} },
     { path: 'categories/new',       name: 'publishing-category-new',    component: categoryForm, meta: {title: 'New Category'} },
