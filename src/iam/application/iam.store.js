@@ -1,6 +1,5 @@
 import {IamApi} from "../infrastructure/iam-api.js";
 import {defineStore} from "pinia";
-import {ConfirmDialogStyle} from "primevue";
 import {computed, ref} from "vue";
 import {SignInAssembler} from "../infrastructure/sign-in.assembler.js";
 import {UserAssembler} from "../infrastructure/user.assembler.js";
