@@ -6,6 +6,7 @@
 import Home from "./shared/presentation/views/home.vue";
 import {createRouter, createWebHistory} from "vue-router";
 import publishingRoutes from "./publishing/presentation/publishing-routes.js";
+import iamRoutes  from "./iam/presentation/iam-routes.js";
 
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
@@ -14,6 +15,7 @@ const routes = [
     { path: '/home',            name: 'home',       component: Home,            meta: { title: 'Home' } },
     { path: '/about',           name: 'about',      component: about,           meta: { title: 'About' } },
     { path: '/publishing',      name: 'publishing', children: publishingRoutes },
+    { path: '/iam',             name: 'iam',        children: iamRoutes },
     { path: '/',                redirect: '/home'},
     { path: '/:pathMatch(.*)*', name: 'not-found',  component: pageNotFound,    meta: { title: 'Page Not Found' } },
 ];

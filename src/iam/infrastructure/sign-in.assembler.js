@@ -8,4 +8,5 @@ export class SignInAssembler {
             return null;
         }
         return new SignInResource({...response.data});
-} 
+    }
+}
