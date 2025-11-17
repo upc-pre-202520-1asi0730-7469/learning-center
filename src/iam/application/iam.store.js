@@ -96,3 +96,5 @@ const useIamStore = defineStore('iam', () => {
         fetchUsers
     };
 }); 
+
+export default useIamStore;
