@@ -1,4 +1,5 @@
-import axios from "axios";  
+import axios from "axios";
+import {iamInterceptor} from "../../iam/infrastructure/iam-interceptor.js";  
 
 const platformApi = import.meta.env.VITE_LEARNING_PLATFORM_API_URL;
 
@@ -17,7 +18,13 @@ export class BaseApi {
      * Initializes the Axios instance with the base URL.
      */
     constructor() {
-        this.#http = axios.create({ baseURL: platformApi });
+        this.#http = axios.create({ baseURL: platformApi,
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }});
+        // Add interceptor for Authorization header setting
+        this.#http.interceptors.request.use(iamInterceptor);
     }
 
     /**
