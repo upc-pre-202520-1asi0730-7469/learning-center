@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Category Form Component
+ * Provides a form for creating or editing a category.
+ * Integrates with the publishing store for CRUD operations.
+ */
+
 import {useI18n} from "vue-i18n";
 import {useRoute, useRouter} from "vue-router";
 import usePublishingStore from "../../application/publishing.store.js";
@@ -10,7 +16,10 @@ const route = useRoute();
 const router = useRouter();
 const store = usePublishingStore();
 const { errors, addCategory, updateCategory } = store;
-
+/**
+ * Reactive form data for category.
+ * @type {Ref<Object>}
+ */
 const form = ref({ name: ''});
 const isEdit = computed(() => !!route.params.id);
 

@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Layout Component
+ * Provides the main layout structure including header, navigation, main content area, and footer.
+ * Includes toolbar with menu items, authentication section, and language switcher.
+ */
+
 import {useI18n} from "vue-i18n";
 import {ref} from "vue";
 import LanguageSwitcher from "./language-switcher.vue";
@@ -11,6 +17,10 @@ const drawer = ref(false);
  * Toggles the drawer open or closed.
  */
 const toggleDrawer = () => { drawer.value = !drawer.value; };
+/**
+ * Navigation items for the menu.
+ * @type {Array<Object>}
+ */
 const items = [
   {label: 'option.home', to: '/home'},
   {label: 'option.about', to: '/about'},

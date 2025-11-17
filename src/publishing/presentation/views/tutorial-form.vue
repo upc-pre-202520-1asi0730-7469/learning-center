@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Tutorial Form Component
+ * Provides a form for creating or editing a tutorial.
+ * Integrates with the publishing store for CRUD operations.
+ */
+
 import {useI18n} from "vue-i18n";
 import {useRoute, useRouter} from "vue-router";
 import usePublishingStore from "../../application/publishing.store.js";
@@ -10,7 +16,10 @@ const route = useRoute();
 const router = useRouter();
 const store = usePublishingStore();
 const {errors, categories, addTutorial, updateTutorial, fetchCategories} = store;
-
+/**
+ * Reactive form data for tutorial.
+ * @type {Ref<Object>}
+ */
 const form = ref({title: '', summary: '', categoryId: null});
 const isEdit = computed(() => !!route.params.id);
 

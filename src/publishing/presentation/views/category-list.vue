@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Category List Component
+ * Displays a list of categories with options to view, edit, and delete.
+ * Integrates with the publishing store to fetch and manage categories.
+ */
+
 import {useI18n} from "vue-i18n";
 import {useRouter} from "vue-router";
 import {Button as PvButton, useConfirm} from "primevue";

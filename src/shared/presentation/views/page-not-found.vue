@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Page Not Found View Component
+ * Displays a 404 error page with the unavailable route and a link to home.
+ * Uses internationalization for text.
+ */
+
 import {useRouter} from "vue-router";
 import {useI18n} from "vue-i18n";
 

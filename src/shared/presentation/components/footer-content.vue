@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Footer Content Component
+ * Displays the footer with copyright and authoring information.
+ * Uses internationalization for dynamic text.
+ */
+
   import {useI18n} from "vue-i18n";
 
   const { t } = useI18n();

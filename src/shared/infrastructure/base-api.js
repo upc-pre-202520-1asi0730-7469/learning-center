@@ -5,17 +5,21 @@ const platformApi = import.meta.env.VITE_LEARNING_PLATFORM_API_URL;
 
 /**
  * BaseApi class to handle HTTP requests using Axios.
- * It initializes an Axios instance with a base URL from environment variables.
- * Provides a getter for the Axios instance to be used in derived classes.
+ * Initializes an Axios instance with a base URL and default headers.
+ * Provides a getter for the Axios instance and applies request interceptors.
+ * @class
  */
 export class BaseApi {
     /**
      * @type {import("axios").AxiosInstance}
+     * @private
      */
     #http;
 
     /**
-     * Initializes the Axios instance with the base URL.
+     * Initializes the Axios instance with the base URL and headers.
+     * Adds request interceptors for authentication.
+     * @constructor
      */
     constructor() {
         this.#http = axios.create({ baseURL: platformApi,
@@ -29,7 +33,7 @@ export class BaseApi {
 
     /**
      * Getter for the Axios instance.
-     * @returns {AxiosInstance}
+     * @returns {import("axios").AxiosInstance} The configured Axios instance.
      */
     get http() { return this.#http;}
 }

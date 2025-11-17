@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Home View Component
+ * Displays the home page content with title and description.
+ * Uses internationalization for text.
+ */
+
 import {useI18n} from "vue-i18n";
 
 const {t} = useI18n();

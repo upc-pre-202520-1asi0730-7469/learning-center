@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Sign-Up Form Component
+ * Provides a form for user sign-up with username and password fields.
+ * Handles form submission and integrates with the IAM store.
+ */
+
 import {useRouter} from "vue-router";
 import useIamStore from "../../application/iam.store.js";
 import {reactive} from "vue";
@@ -7,11 +13,18 @@ import {SignUpCommand} from "../../domain/sign-up.command.js";
 const router = useRouter();
 const store = useIamStore();
 const {signUp} = store;
+/**
+ * Reactive form data for sign-up.
+ * @type {Ref<Object>}
+ */
 const form = reactive({
   username: "",
   password: ""
 });
 
+/**
+ * Performs the sign-up action by creating a SignUpCommand and calling the store's signUp method.
+ */
 function performSignUp() {
   let signUpCommand = new SignUpCommand(form);
   signUp(signUpCommand, router);

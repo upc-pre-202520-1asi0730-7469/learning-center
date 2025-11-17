@@ -26,9 +26,17 @@ const usePublishingStore = defineStore('publishing', () => {
     const tutorialsLoaded = ref(false);
     
     // Properties
+    /**
+     * Computed property that returns the count of loaded categories.
+     * @type {ComputedRef<number>}
+     */
     const categoriesCount = computed(() => { 
     return categoriesLoaded ? categories.value.length : 0; });
     
+    /**
+     * Computed property that returns the count of loaded tutorials.
+     * @type {ComputedRef<number>}
+     */
     const tutorialsCount = computed(() => { 
     return tutorialsLoaded ? tutorials.value.length : 0; });
     

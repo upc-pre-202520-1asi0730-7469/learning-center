@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Tutorial List Component
+ * Displays a list of tutorials with options to view, edit, and delete.
+ * Integrates with the publishing store to fetch and manage tutorials.
+ */
+
 import {useI18n} from "vue-i18n";
 import {useRouter} from "vue-router";
 import {useConfirm} from "primevue";

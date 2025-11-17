@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * About View Component
+ * Displays the about page with logo and content.
+ * Uses internationalization for text.
+ */
+
 import {useI18n} from "vue-i18n";
 
 const { t } = useI18n();

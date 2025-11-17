@@ -7,6 +7,12 @@ import {SignUpAssembler} from "../infrastructure/sign-up.assembler.js";
 
 const iamApi = new IamApi();
 
+/**
+ * Pinia store for managing IAM (Identity and Access Management) state.
+ * Handles user authentication, sign-in, sign-up, and user data.
+ * 
+ * @returns {Object} The store instance with state, getters, and actions.
+ */
 const useIamStore = defineStore('iam', () => {
     const users = ref([]);
     const errors = ref([]);
@@ -14,10 +20,19 @@ const useIamStore = defineStore('iam', () => {
     const isSignedIn = ref(false);
     const currentUsername = ref(null);
     const currentUserId = ref(0);
+    /**
+     * Computed property that returns the current authentication token.
+     * @type {ComputedRef<string|null>}
+     */
     const currentToken = computed(() => isSignedIn.value 
         ? localStorage.getItem('token') 
         : null);
     
+    /**
+     * Signs in a user using the provided sign-in command and navigates accordingly.
+     * @param {SignInCommand} signInCommand - The sign-in command containing username and password.
+     * @param {Object} router - The Vue router instance for navigation.
+     */
     function signIn(signInCommand, router) {
         iamApi.signIn(signInCommand)
             .then(response => {
@@ -44,6 +59,11 @@ const useIamStore = defineStore('iam', () => {
             });
     }
     
+    /**
+     * Signs up a new user using the provided sign-up command and navigates accordingly.
+     * @param {SignUpCommand} signUpCommand - The sign-up command containing user details.
+     * @param {Object} router - The Vue router instance for navigation.
+     */
     function signUp(signUpCommand, router) {
         iamApi.signUp(signUpCommand)
             .then(response => {
@@ -62,6 +82,10 @@ const useIamStore = defineStore('iam', () => {
             });
     }
     
+    /**
+     * Signs out the current user, clears authentication state, and navigates to sign-in.
+     * @param {Object} router - The Vue router instance for navigation.
+     */
     function signOut(router) {
         isSignedIn.value = false;
         currentUsername.value = null;
@@ -71,6 +95,9 @@ const useIamStore = defineStore('iam', () => {
         router.push({ name: 'iam-sign-in' });
     }
     
+    /**
+     * Fetches the list of users from the API and updates the store state.
+     */
     function fetchUsers() {
         iamApi.getUsers().then(response => {
             users.value = UserAssembler.toEntitiesFromResponse(response);

@@ -1,4 +1,10 @@
 <script setup>
+/**
+ * Sign-In Form Component
+ * Provides a form for user sign-in with username and password fields.
+ * Handles form submission and integrates with the IAM store.
+ */
+
 import {useRouter} from "vue-router";
 import useIamStore from "../../application/iam.store.js";
 import {reactive} from "vue";
@@ -8,11 +14,18 @@ import {FloatLabel as PvFloatLabel, InputText as PvInputText} from "primevue";
 const router = useRouter();
 const store = useIamStore();
 const {signIn} = store;
+/**
+ * Reactive form data for sign-in.
+ * @type {Ref<Object>}
+ */
 const form = reactive({
   username: "",
   password: ""
 });
 
+/**
+ * Performs the sign-in action by creating a SignInCommand and calling the store's signIn method.
+ */
 function performSignIn() {
   let signInCommand = new SignInCommand(form);
   signIn(signInCommand, router);
