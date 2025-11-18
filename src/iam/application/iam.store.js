@@ -1,6 +1,6 @@
 import {IamApi} from "../infrastructure/iam-api.js";
 import {defineStore} from "pinia";
-import {computed, ref, ComputedRef} from "vue";
+import {computed, ref} from "vue";
 import {SignInAssembler} from "../infrastructure/sign-in.assembler.js";
 import {UserAssembler} from "../infrastructure/user.assembler.js";
 import {SignUpAssembler} from "../infrastructure/sign-up.assembler.js";

@@ -7,7 +7,7 @@
 
 import {useRouter} from "vue-router";
 import useIamStore from "../../application/iam.store.js";
-import {reactive, Reactive} from "vue";
+import {reactive} from "vue";
 import {SignUpCommand} from "../../domain/sign-up.command.js";
 
 const router = useRouter();

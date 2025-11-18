@@ -7,9 +7,8 @@
 
 import {useRouter} from "vue-router";
 import useIamStore from "../../application/iam.store.js";
-import {reactive, Reactive} from "vue";
+import {reactive} from "vue";
 import {SignInCommand} from "../../domain/sign-in.command.js";
-import {FloatLabel as PvFloatLabel, InputText as PvInputText} from "primevue";
 
 const router = useRouter();
 const store = useIamStore();
