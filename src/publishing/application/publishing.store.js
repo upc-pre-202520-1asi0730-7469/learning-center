@@ -1,6 +1,6 @@
 import {PublishingApi} from "../infrastructure/publishing-api.js";
 import {defineStore} from "pinia";
-import {computed, ref} from "vue";
+import {computed, ref, ComputedRef} from "vue";
 import {CategoryAssembler} from "../infrastructure/category.assembler.js";
 import {TutorialAssembler} from "../infrastructure/tutorial.assembler.js";
 
@@ -35,10 +35,9 @@ const usePublishingStore = defineStore('publishing', () => {
     
     /**
      * Computed property that returns the count of loaded tutorials.
-     * @type {ComputedRef<number>}
+     * @type {ComputedRef<number|number>}
      */
-    const tutorialsCount = computed(() => { 
-    return tutorialsLoaded ? tutorials.value.length : 0; });
+    const tutorialsCount = computed(() => tutorialsLoaded ? tutorials.value.length : 0);
     
     // Actions
     /**

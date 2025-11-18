@@ -7,7 +7,7 @@
 
 import {useRouter} from "vue-router";
 import useIamStore from "../../application/iam.store.js";
-import {reactive} from "vue";
+import {reactive, Reactive} from "vue";
 import {SignInCommand} from "../../domain/sign-in.command.js";
 import {FloatLabel as PvFloatLabel, InputText as PvInputText} from "primevue";
 
@@ -16,7 +16,7 @@ const store = useIamStore();
 const {signIn} = store;
 /**
  * Reactive form data for sign-in.
- * @type {Ref<Object>}
+ * @type {Reactive<{username: string, password: string}>}
  */
 const form = reactive({
   username: "",

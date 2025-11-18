@@ -23,6 +23,6 @@ export class SignInAssembler {
             console.error(`${response.status}, ${response.statusText}`);
             return null;
         }
-        return new SignInResource({...response.data});
+        return new SignInResource(response.data);
     }
 }

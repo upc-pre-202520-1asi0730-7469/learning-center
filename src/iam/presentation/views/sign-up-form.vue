@@ -7,7 +7,7 @@
 
 import {useRouter} from "vue-router";
 import useIamStore from "../../application/iam.store.js";
-import {reactive} from "vue";
+import {reactive, Reactive} from "vue";
 import {SignUpCommand} from "../../domain/sign-up.command.js";
 
 const router = useRouter();
@@ -15,7 +15,7 @@ const store = useIamStore();
 const {signUp} = store;
 /**
  * Reactive form data for sign-up.
- * @type {Ref<Object>}
+ * @type {Reactive<Object>}
  */
 const form = reactive({
   username: "",

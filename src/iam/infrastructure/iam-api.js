@@ -49,7 +49,7 @@ export class IamApi extends BaseApi {
     
     /**
      * Fetches all users.
-     * @returns {Promise<Object>} A promise resolving to the users response.
+     * @returns {Promise<Object>} A promise resolving to the users' response.
      */
     getUsers() {
         return this.#usersEndpoint.getAll();
